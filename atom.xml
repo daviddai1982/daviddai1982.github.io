@@ -66,7 +66,7 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
     <link href="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/"/>
     <id>https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/</id>
     <published>2016-12-28T07:01:58.000Z</published>
-    <updated>2017-06-09T07:54:10.000Z</updated>
+    <updated>2017-06-09T07:57:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>1.安装Homebrew</p>
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
@@ -79,7 +79,7 @@ cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
 resolv-file=/etc/resolv.dnsmasq.conf
 interface=en0
 interface=en1
-listen-address=127.0.0.1,192.168.2.1(共享无线热点的网关IP),10.0.1.242(本机对外局域网IP)
+listen-address=0.0.0.0
 
 /etc/resolv.dnsmasq.conf
 nameserver 202.106.0.20

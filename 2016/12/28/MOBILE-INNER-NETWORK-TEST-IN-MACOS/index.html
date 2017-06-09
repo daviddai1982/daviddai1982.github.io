@@ -17,7 +17,7 @@
 <meta property="og:description" content="1.安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 2.安装Dnsmasq brew install dnsmasq cd $(brew --prefix) mkdir etc cp /usr/local/opt/dnsmas">
 <meta property="og:image" content="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/01.png">
 <meta property="og:image" content="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/02.png">
-<meta property="og:updated_time" content="2017-06-09T07:54:10.000Z">
+<meta property="og:updated_time" content="2017-06-09T07:57:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac作为共享热点给移动端测试(免越狱或Root)">
 <meta name="twitter:description" content="1.安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 2.安装Dnsmasq brew install dnsmasq cd $(brew --prefix) mkdir etc cp /usr/local/opt/dnsmas">
@@ -172,7 +172,7 @@ cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
 resolv-file=/etc/resolv.dnsmasq.conf
 interface=en0
 interface=en1
-listen-address=127.0.0.1,192.168.2.1(共享无线热点的网关IP),10.0.1.242(本机对外局域网IP)
+listen-address=0.0.0.0
 
 /etc/resolv.dnsmasq.conf
 nameserver 202.106.0.20
