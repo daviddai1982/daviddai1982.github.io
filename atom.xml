@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小戴的技术博客</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://daviddai1982.github.io/"/>
+  <updated>2017-06-09T07:28:22.000Z</updated>
+  <id>https://daviddai1982.github.io/</id>
+  
+  <author>
+    <name>DavidDai</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO常见大坑列举</title>
+    <link href="https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/"/>
+    <id>https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/</id>
+    <published>2016-12-28T08:11:02.000Z</published>
+    <updated>2017-06-09T07:28:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo<br>具体安装步骤请参见以下文章</p>
+<p><a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="external">http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/</a></p>
+<p>在安装中发现无数大坑特此一一列举:(</p>
+<h3 id="大坑1"><a href="#大坑1" class="headerlink" title="大坑1"></a>大坑1</h3><pre><code>npm install hexo-cli -g
+</code></pre><p>问题: 执行以上命令发现,没有权限,</p>
+<p>解决: 后来前面加sudo解决</p>
+<h3 id="大坑2-部署Github报错"><a href="#大坑2-部署Github报错" class="headerlink" title="大坑2 部署Github报错"></a>大坑2 部署Github报错</h3><p>问题:</p>
+<pre><code>Permission denied (publickey).
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights
+and the repository exists.
+</code></pre><p>原因是没有生成Github所需的ssh key</p>
+<p>解决:</p>
+<p>生成key</p>
+<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;xxx@xxx.com&quot;
+</code></pre><p>添加到已有的sshkey</p>
+<pre><code>ssh-add ~/.ssh/github_rsa
+</code></pre><p>测试连接Github的SSH服务器</p>
+<pre><code>ssh -T git@github.com
+Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre><p>显示以上信息代表连接Github SSH服务器成功</p>
+<h3 id="大坑3-生成sitemap和atom失败"><a href="#大坑3-生成sitemap和atom失败" class="headerlink" title="大坑3 生成sitemap和atom失败"></a>大坑3 生成sitemap和atom失败</h3><p>问题: 安装以上插件后,发现sitemap和atom文件没有生成<br>解决: 执行命令需要加 –save 后缀 否则就生成失败</p>
+<h3 id="大坑4-给博客添加本地图片"><a href="#大坑4-给博客添加本地图片" class="headerlink" title="大坑4 给博客添加本地图片"></a>大坑4 给博客添加本地图片</h3><p>需要安装插件</p>
+<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save
+</code></pre><p>确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，如此一来，您便可以更方便的使用资源。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo&lt;br&gt;具体安装步骤请参见以下文章&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://jiji262.github.io/2016/04/15/2016-04-15-hexo-gi
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://daviddai1982.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac作为共享热点给移动端测试(免越狱或Root)</title>
+    <link href="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/"/>
+    <id>https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/</id>
+    <published>2016-12-28T07:01:58.000Z</published>
+    <updated>2017-06-09T07:54:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.安装Homebrew</p>
+<pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><p>2.安装Dnsmasq</p>
+<pre><code>brew install dnsmasq
+cd $(brew --prefix)
+mkdir etc
+cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
+</code></pre><h3 id="dnsmasq配置"><a href="#dnsmasq配置" class="headerlink" title="dnsmasq配置"></a>dnsmasq配置</h3><pre><code>dnsmasq.conf
+resolv-file=/etc/resolv.dnsmasq.conf
+interface=en0
+interface=en1
+listen-address=127.0.0.1,192.168.2.1(共享无线热点的网关IP),10.0.1.242(本机对外局域网IP)
+
+/etc/resolv.dnsmasq.conf
+nameserver 202.106.0.20
+nameserver 8.8.8.8
+</code></pre><p>3.load/unload dns 服务</p>
+<h3 id="关闭服务"><a href="#关闭服务" class="headerlink" title="关闭服务"></a>关闭服务</h3><pre><code>sudo launchctl unload -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+</code></pre><h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><pre><code>sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+</code></pre><p>或者</p>
+<pre><code>sudo brew services restart dnsmasq
+</code></pre><p>4.注意事项<br>先测试本地host是否生效<br>再测试移动设备host是否生效</p>
+<p>5.有线网卡和无线网卡的配置</p>
+<p>有线网卡和无线网卡的DNS手动设置均设置为127.0.0.1</p>
+<h3 id="有线网卡"><a href="#有线网卡" class="headerlink" title="有线网卡"></a>有线网卡</h3><p><img src="/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/01.png" alt="有线网卡设置"></p>
+<h3 id="无线网卡"><a href="#无线网卡" class="headerlink" title="无线网卡"></a>无线网卡</h3><p><img src="/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/02.png" alt="无线网卡设置"></p>
+<h3 id="服务验证"><a href="#服务验证" class="headerlink" title="服务验证"></a>服务验证</h3><pre><code>-2  5934     1   0 10:01上午 ??         0:03.62 /usr/local/opt/dnsmasq/sbin/dnsmasq --keep-in-foreground -C /usr/local/etc/dnsmasq.conf
+501 59947  1937   0  3:52下午 ttys001    0:00.00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn dnsmasq
+</code></pre><h3 id="PS-出现第一行的进程才代表服务启动成功"><a href="#PS-出现第一行的进程才代表服务启动成功" class="headerlink" title="PS: 出现第一行的进程才代表服务启动成功:)"></a>PS: 出现第一行的进程才代表服务启动成功:)</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.安装Homebrew&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/
+    
+    </summary>
+    
+    
+      <category term="移动开发" scheme="https://daviddai1982.github.io/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="原创" scheme="https://daviddai1982.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WZR-HP-AG300H TFTP刷机(Mac系统)</title>
+    <link href="https://daviddai1982.github.io/2016/12/28/AG300H-TFTP-IN-MACOS/"/>
+    <id>https://daviddai1982.github.io/2016/12/28/AG300H-TFTP-IN-MACOS/</id>
+    <published>2016-12-28T05:46:44.000Z</published>
+    <updated>2017-06-09T07:28:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h1><p>Mac使用网线直接连接AG300H的LAN4口(紧挨着WAN口)</p>
+<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p>1.关闭所有网络链接,只留下有线网卡<br>2.有线网卡设置如下:</p>
+<pre><code>IP 192.168.11.2 
+NETMASK 255.255.255.0 
+GATEWAY 192.168.11.1 
+DNS 192.168.11.1
+</code></pre><p>3.开启ag300h路由器 连接LAN4端口(紧挨着WAN口的端口)</p>
+<p>当网卡显示已连接后 执行</p>
+<pre><code>sudo arp -s 192.168.11.1 02:aa:bb:cc:dd:1a ifscope en0
+PS:执行此步骤之前请确保有线网卡状态为已连接(在系统偏好设置里面找到以太网设置并显示绿灯)
+</code></pre><p>4.输入以下tftp命令</p>
+<pre><code>tftp 192.168.11.1 
+tftp&gt; verbose 
+tftp&gt; binary 
+tftp&gt; trace 
+tftp&gt; rexmt 1
+tftp&gt; timeout 360 
+tftp&gt; put 固件名称.enc
+
+PS:到最后一步请不要按回车执行
+</code></pre><p>5.关闭路由器.再次开启路由器,倒计时约10s,执行以上最后一个put固件的命令</p>
+<pre><code>PS:请给路由器加电 倒数约10s左右 开始按回车 等待固件上传 
+如果没反应 请反复按上箭头健执行最后的put命令 直到成功为止
+</code></pre><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>Buffalo wzr-hp-g300nh路由器折腾小记</p>
+<footer><strong>@NAITONG YU</strong><cite><a href="https://www.yunaitong.cn/configure-buffalo-wzr-hp-g300nh.html" target="_blank" rel="external">www.yunaitong.cn/configure-buffalo-wzr-hp-g300nh.html</a></cite></footer></blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;硬件准备&quot;&gt;&lt;a href=&quot;#硬件准备&quot; class=&quot;headerlink&quot; title=&quot;硬件准备&quot;&gt;&lt;/a&gt;硬件准备&lt;/h1&gt;&lt;p&gt;Mac使用网线直接连接AG300H的LAN4口(紧挨着WAN口)&lt;/p&gt;
+&lt;h1 id=&quot;操作步骤&quot;&gt;&lt;a href=&quot;#操
+    
+    </summary>
+    
+    
+      <category term="路由器" scheme="https://daviddai1982.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+  </entry>
+  
+</feed>
