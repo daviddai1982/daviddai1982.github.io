@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daviddai1982.github.io">
-  <title>HEXO常见大坑列举 | 小戴的技术博客</title>
+  <title>Archives: 2017/6 | 小戴的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo具体安装步骤请参见以下文章 http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/ 在安装中发现无数大坑特此一一列举:( 大坑1npm install hexo-cli -g 问题: 执行以上命令发现,没有权限, 解">
-<meta name="keywords" content="hexo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HEXO常见大坑列举">
-<meta property="og:url" content="https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="小戴的技术博客">
+<meta property="og:url" content="https://daviddai1982.github.io/archives/2017/06/index.html">
 <meta property="og:site_name" content="小戴的技术博客">
-<meta property="og:description" content="今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo具体安装步骤请参见以下文章 http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/ 在安装中发现无数大坑特此一一列举:( 大坑1npm install hexo-cli -g 问题: 执行以上命令发现,没有权限, 解">
-<meta property="og:updated_time" content="2017-06-09T07:28:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO常见大坑列举">
-<meta name="twitter:description" content="今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo具体安装步骤请参见以下文章 http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/ 在安装中发现无数大坑特此一一列举:( 大坑1npm install hexo-cli -g 问题: 执行以上命令发现,没有权限, 解">
+<meta name="twitter:title" content="小戴的技术博客">
   
     <link rel="alternative" href="/atom.xml" title="小戴的技术博客" type="application/atom+xml">
   
@@ -140,78 +135,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HEXO-FAQ" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      HEXO常见大坑列举
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/" class="archive-article-date">
+  	<time datetime="2017-06-09T08:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/">【转】多机器同步HEXO博客内容</a>
     </h1>
   
 
-        <a href="/2016/12/28/HEXO-FAQ/" class="archive-article-date">
-  	<time datetime="2016-12-28T08:11:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo<br>具体安装步骤请参见以下文章</p>
-<p><a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="external">http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/</a></p>
-<p>在安装中发现无数大坑特此一一列举:(</p>
-<h3 id="大坑1"><a href="#大坑1" class="headerlink" title="大坑1"></a>大坑1</h3><pre><code>npm install hexo-cli -g
-</code></pre><p>问题: 执行以上命令发现,没有权限,</p>
-<p>解决: 后来前面加sudo解决</p>
-<h3 id="大坑2-部署Github报错"><a href="#大坑2-部署Github报错" class="headerlink" title="大坑2 部署Github报错"></a>大坑2 部署Github报错</h3><p>问题:</p>
-<pre><code>Permission denied (publickey).
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights
-and the repository exists.
-</code></pre><p>原因是没有生成Github所需的ssh key</p>
-<p>解决:</p>
-<p>生成key</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;xxx@xxx.com&quot;
-</code></pre><p>添加到已有的sshkey</p>
-<pre><code>ssh-add ~/.ssh/github_rsa
-</code></pre><p>测试连接Github的SSH服务器</p>
-<pre><code>ssh -T git@github.com
-Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-</code></pre><p>显示以上信息代表连接Github SSH服务器成功</p>
-<h3 id="大坑3-生成sitemap和atom失败"><a href="#大坑3-生成sitemap和atom失败" class="headerlink" title="大坑3 生成sitemap和atom失败"></a>大坑3 生成sitemap和atom失败</h3><p>问题: 安装以上插件后,发现sitemap和atom文件没有生成<br>解决: 执行命令需要加 –save 后缀 否则就生成失败</p>
-<h3 id="大坑4-给博客添加本地图片"><a href="#大坑4-给博客添加本地图片" class="headerlink" title="大坑4 给博客添加本地图片"></a>大坑4 给博客添加本地图片</h3><p>需要安装插件</p>
-<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save
-</code></pre><p>确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，如此一来，您便可以更方便的使用资源。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
@@ -223,113 +176,19 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【转】多机器同步HEXO博客内容
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac作为共享热点给移动端测试(免越狱或Root)</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="HEXO-FAQ" data-title="HEXO常见大坑列举" data-url="https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"github2013"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 
           </div>
@@ -355,8 +214,8 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://daviddai1982.github.io">
-  <title>HEXO常见大坑列举 | 小戴的技术博客</title>
+  <title>【转】多机器同步HEXO博客内容 | 小戴的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo具体安装步骤请参见以下文章 http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/ 在安装中发现无数大坑特此一一列举:( 大坑1npm install hexo-cli -g 问题: 执行以上命令发现,没有权限, 解">
+  <meta name="description" content="场景单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文章的md文件），所以多台电脑同时用来写文章的时候，需要解决备份问题。 利用第三方的git服务备份优点：部署完成后更新方便，hexo 更新完后只需要再更新全站到git即可缺点：部署过程相对">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO常见大坑列举">
-<meta property="og:url" content="https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/index.html">
+<meta property="og:title" content="【转】多机器同步HEXO博客内容">
+<meta property="og:url" content="https://daviddai1982.github.io/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/index.html">
 <meta property="og:site_name" content="小戴的技术博客">
-<meta property="og:description" content="今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo具体安装步骤请参见以下文章 http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/ 在安装中发现无数大坑特此一一列举:( 大坑1npm install hexo-cli -g 问题: 执行以上命令发现,没有权限, 解">
-<meta property="og:updated_time" content="2017-06-09T07:28:22.000Z">
+<meta property="og:description" content="场景单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文章的md文件），所以多台电脑同时用来写文章的时候，需要解决备份问题。 利用第三方的git服务备份优点：部署完成后更新方便，hexo 更新完后只需要再更新全站到git即可缺点：部署过程相对">
+<meta property="og:updated_time" content="2017-06-09T08:50:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO常见大坑列举">
-<meta name="twitter:description" content="今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo具体安装步骤请参见以下文章 http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/ 在安装中发现无数大坑特此一一列举:( 大坑1npm install hexo-cli -g 问题: 执行以上命令发现,没有权限, 解">
+<meta name="twitter:title" content="【转】多机器同步HEXO博客内容">
+<meta name="twitter:description" content="场景单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文章的md文件），所以多台电脑同时用来写文章的时候，需要解决备份问题。 利用第三方的git服务备份优点：部署完成后更新方便，hexo 更新完后只需要再更新全站到git即可缺点：部署过程相对">
   
     <link rel="alternative" href="/atom.xml" title="小戴的技术博客" type="application/atom+xml">
   
@@ -140,50 +140,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HEXO-FAQ" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HEXO常见大坑列举
+      【转】多机器同步HEXO博客内容
     </h1>
   
 
-        <a href="/2016/12/28/HEXO-FAQ/" class="archive-article-date">
-  	<time datetime="2016-12-28T08:11:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
+        <a href="/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/" class="archive-article-date">
+  	<time datetime="2017-06-09T08:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-09</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天突发奇想要在Github上面写博客,然后Google了相关问题发现了一个高大上的东东–hexo<br>具体安装步骤请参见以下文章</p>
-<p><a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="external">http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/</a></p>
-<p>在安装中发现无数大坑特此一一列举:(</p>
-<h3 id="大坑1"><a href="#大坑1" class="headerlink" title="大坑1"></a>大坑1</h3><pre><code>npm install hexo-cli -g
-</code></pre><p>问题: 执行以上命令发现,没有权限,</p>
-<p>解决: 后来前面加sudo解决</p>
-<h3 id="大坑2-部署Github报错"><a href="#大坑2-部署Github报错" class="headerlink" title="大坑2 部署Github报错"></a>大坑2 部署Github报错</h3><p>问题:</p>
-<pre><code>Permission denied (publickey).
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights
-and the repository exists.
-</code></pre><p>原因是没有生成Github所需的ssh key</p>
-<p>解决:</p>
-<p>生成key</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;xxx@xxx.com&quot;
-</code></pre><p>添加到已有的sshkey</p>
-<pre><code>ssh-add ~/.ssh/github_rsa
-</code></pre><p>测试连接Github的SSH服务器</p>
-<pre><code>ssh -T git@github.com
-Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-</code></pre><p>显示以上信息代表连接Github SSH服务器成功</p>
-<h3 id="大坑3-生成sitemap和atom失败"><a href="#大坑3-生成sitemap和atom失败" class="headerlink" title="大坑3 生成sitemap和atom失败"></a>大坑3 生成sitemap和atom失败</h3><p>问题: 安装以上插件后,发现sitemap和atom文件没有生成<br>解决: 执行命令需要加 –save 后缀 否则就生成失败</p>
-<h3 id="大坑4-给博客添加本地图片"><a href="#大坑4-给博客添加本地图片" class="headerlink" title="大坑4 给博客添加本地图片"></a>大坑4 给博客添加本地图片</h3><p>需要安装插件</p>
-<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save
-</code></pre><p>确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，如此一来，您便可以更方便的使用资源。</p>
-
+        <h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>单位和家里两PC，同时都想更新blog。而由于hexo没有后台，而且全部文件都在本地生成，所以如果公司电脑上发表了A文章后回家又写了篇B文章，在家里上传后你会发现只有B文章而A文章没了（因为家里的PC上没有A文章的md文件），所以多台电脑同时用来写文章的时候，需要解决备份问题。</p>
+<h3 id="利用第三方的git服务备份"><a href="#利用第三方的git服务备份" class="headerlink" title="利用第三方的git服务备份"></a>利用第三方的git服务备份</h3><p>优点：部署完成后更新方便，hexo 更新完后只需要再更新全站到git即可<br>缺点：部署过程相对比较麻烦，对新手不友好（其实是由于对git的理解不深导致的）<br>国内外现在知名的git服务提供商主要有：<br>github、gitcafe、bitbucket、oschina、coding等</p>
+<p>由于blog文件夹里有些插件配置文件会涉及比较敏感的隐私数据（云服务商的appsecret key之类的），所以建议放私有仓库（当然也可以把配置文件单独拿出来然后其余的全部扔到git的公众仓库，这个看人，本文重点也不在于git服务商的选择或者公有私有库之争）<br>上面提及的5家服务商里，github、gitcafe的私有库是收费的，而另外三家的私有库目前免费。各位可以自行选择，我个人选择了<a href="http://git.oschina.net/" target="_blank" rel="external">oschina</a></p>
+<h3 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h3><p>git多网站多账户部署过程可以参考git多网站ssh部署方案</p>
+<h3 id="上传blog到git"><a href="#上传blog到git" class="headerlink" title="上传blog到git"></a>上传blog到git</h3><p>这个操作建议在blog进度最新的PC上进行的，否则后面解决冲突会比较麻烦<br>在osc上添加公钥，建立新respo等过程略过不讲。</p>
+<p>1.删除文件夹内原有的.git缓存文件夹并编辑.gitignore文件</p>
+<blockquote>
+<p>有些插件或者主题是git上下过来安装的话，每个文件夹下都会有对应的.git 文件夹，记得先删掉，否则会和blog仓库冲突<br>（.git默认是隐藏文件夹，需要先开启显示隐藏文件夹。##.git文件夹被删除后整个文件对应的git仓库状态也会被清空##)<br>.gitignore文件作用是声明不被git记录的文件，blog根目录下的.gitignore是hexo初始化带来的，可以先删除或者直接编辑，对hexo不会有影响。建议.gitignore内添加以下内容：<br>    /.deploy_git<br>    /public<br>    /_config.yml</p>
+<p>1.<code>.deploy_git</code>是hexo默认的.git配置文件夹，不需要同步<br>2.public内文件是根据source文件夹内容自动生成，不需要备份，不然每次改动内容太多<br>3.即使是私有仓库，除去在线服务商员工可以看到的风险外，还有云服务商被攻击造成泄漏等可能，所以不建议将配置文件传上去</p>
+</blockquote>
+<p>2.初始化仓库<br>blog根目录下执行以下代码：</p>
+<pre><code>git init
+git remote add origin &lt;server&gt;
+</code></pre><blockquote>
+<p><server>是指在线仓库的地址。origin是本地分支,remote add操作会将本地仓库映射到云端</server></p>
+</blockquote>
+<p>3.添加本地文件到仓库并同步到git上</p>
+<pre><code>git add .  #添加blog目录下所有文件，注意有个`.`（`.gitignore`声明过的文件不包含在内)
+git commit -m &quot;first commit&quot; #添加更新说明
+git push -u origin master #推送更新到云端服务器
+</code></pre><blockquote>
+<p>在执行这步之前一定要注意检查下.gitignore文件的内容，看看是否正确的把一些文件夹忽略掉了。如果加错了的话可以用</p>
+<p>  git rm -r –cached .<br>撤销添加操作。</p>
+</blockquote>
+<p>到这里的时候，云端备份已经完成</p>
+<h3 id="将git的内容同步到本地"><a href="#将git的内容同步到本地" class="headerlink" title="将git的内容同步到本地"></a>将git的内容同步到本地</h3><p>假设之前将A电脑里的内容备份到git了，现在B电脑准备同步内容。</p>
+<pre><code>git init
+git remote add origin &lt;server&gt; #将本地文件和云端仓库映射起来。这步不可以跳过
+git fetch --all
+git reset --hard origin/master
+</code></pre><blockquote>
+<p>fetch是将云端所有内容拉取下来。reset则是不做任何合并处理，强制将本地内容指向刚刚同步下来的云端内容（正常pull的话需要考虑不少冲突的问题，比较麻烦。）</p>
+</blockquote>
+<h3 id="更新文章后的同步操作"><a href="#更新文章后的同步操作" class="headerlink" title="更新文章后的同步操作"></a>更新文章后的同步操作</h3><p>假设在B电脑上写完了文章，也hexo d -g发布完了，这时候需要将新文章的md文件更新上去。（其实就是提交更新给git，会的可以无视了）<br>同一个bash界面下：</p>
+<pre><code>git add .
+</code></pre><blockquote>
+<p>这时候可以用git status查看状态，一般会显示刚刚更改过的文件状态。如：</p>
+<p>   On branch master<br>   Changes to be committed:<br>   (use “git reset HEAD <file>…” to unstage)<br>        modified:   db.json<br>        new file:   source/_posts/test.md<br>上面的输出状态即说明’db.json’文件做了更改，source/_posts目录下新增了’test.md’文件。</file></p>
+</blockquote>
+<p>然后对更改添加说明并推送到远程仓库.</p>
+<pre><code>git commit -m &apos;更新信息&apos;
+git push
+</code></pre><p>当显示类似如下提示的时候，即表示备份成功</p>
+<pre><code>To git@git.oschina.net:xxxx/blog-backup.git
++ 2c77e1e...5616bc6 master -&gt; master (forced update)
+</code></pre><p>再到A电脑上的时候，只需要</p>
+<pre><code>git pull
+</code></pre><p>即可同步更新</p>
+<h3 id="给git配置sock5代理"><a href="#给git配置sock5代理" class="headerlink" title="给git配置sock5代理"></a>给git配置sock5代理</h3><p>由于某些众所周知的缘故，所以github时不时的有时候速度会很慢，这种情况下本地代理就派上用场了。<br>这里以给git的SSH传输方式配置本地SS代理为例说下配置过程：</p>
+<p>1.打开~/.ssh/config文件。<br>2.在Host github *.github.com下添加以下字段：<br>    Proxycommand ssh -S 127.0.0.1:1080 %h %p<br>3.测试连接<br>保存退出后重启git bash。<br>输入<code>ssh -vT git@github.com</code>，当返回<code>Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>的时候即说明配置成功<br>之后github的所有流量都会走本地的ss代理。</p>
+<h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3><p>git同步的时候会报以下错误</p>
+<pre><code>fatal: refusing to merge unrelated histories
+</code></pre><blockquote>
+<p>我们必须添加一个可选项</p>
+</blockquote>
+<pre><code>–allow-unrelated-histories
+</code></pre><p>才行，这个问题在2.9.0之后的版本才出现的，以前的版本可以正常工作。所以最后我的命令是：</p>
+<pre><code>$git pull origin master –allow-unrelated-histories
+</code></pre>
       
 
       
@@ -273,7 +306,7 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://daviddai1982.github.io/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +320,9 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
   
 <nav id="article-nav">
   
-    <a href="/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【转】多机器同步HEXO博客内容
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac作为共享热点给移动端测试(免越狱或Root)</div>
+    <a href="/2016/12/28/HEXO-FAQ/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HEXO常见大坑列举</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -311,7 +335,7 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="HEXO-FAQ" data-title="HEXO常见大坑列举" data-url="https://daviddai1982.github.io/2016/12/28/HEXO-FAQ/"></div>
+	<div class="ds-thread" data-thread-key="HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT" data-title="【转】多机器同步HEXO博客内容" data-url="https://daviddai1982.github.io/2017/06/09/HEXO-SYNC-CONTENT-FOR-MUTI-CLIENT/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
