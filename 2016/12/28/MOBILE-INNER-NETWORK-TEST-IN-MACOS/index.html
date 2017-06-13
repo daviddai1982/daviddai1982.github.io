@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://daviddai1982.github.io">
   <title>Mac作为共享热点给移动端测试(免越狱或Root) | 小戴的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 2.安装Dnsmasq brew install dnsmasq cd $(brew --prefix) mkdir etc cp /usr/local/opt/dnsmas">
+  <meta name="description" content="2017-06-13更新因dnsmasq和系统DNS服务(mDNSResponder)冲突会造成服务启动失败,因此在启动dnsmasq服务前最好关闭系统服务 参考启动脚本如下: sudo killall -HUP mDNSResponder sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.">
 <meta name="keywords" content="移动开发,原创">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac作为共享热点给移动端测试(免越狱或Root)">
 <meta property="og:url" content="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/index.html">
 <meta property="og:site_name" content="小戴的技术博客">
-<meta property="og:description" content="1.安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 2.安装Dnsmasq brew install dnsmasq cd $(brew --prefix) mkdir etc cp /usr/local/opt/dnsmas">
+<meta property="og:description" content="2017-06-13更新因dnsmasq和系统DNS服务(mDNSResponder)冲突会造成服务启动失败,因此在启动dnsmasq服务前最好关闭系统服务 参考启动脚本如下: sudo killall -HUP mDNSResponder sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.">
 <meta property="og:image" content="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/01.png">
 <meta property="og:image" content="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/02.png">
-<meta property="og:updated_time" content="2017-06-09T07:57:36.000Z">
+<meta property="og:updated_time" content="2017-06-13T03:28:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac作为共享热点给移动端测试(免越狱或Root)">
-<meta name="twitter:description" content="1.安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 2.安装Dnsmasq brew install dnsmasq cd $(brew --prefix) mkdir etc cp /usr/local/opt/dnsmas">
+<meta name="twitter:description" content="2017-06-13更新因dnsmasq和系统DNS服务(mDNSResponder)冲突会造成服务启动失败,因此在启动dnsmasq服务前最好关闭系统服务 参考启动脚本如下: sudo killall -HUP mDNSResponder sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.">
 <meta name="twitter:image" content="https://daviddai1982.github.io/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/01.png">
   
     <link rel="alternative" href="/atom.xml" title="小戴的技术博客" type="application/atom+xml">
@@ -161,7 +161,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.安装Homebrew</p>
+        <h3 id="2017-06-13更新"><a href="#2017-06-13更新" class="headerlink" title="2017-06-13更新"></a>2017-06-13更新</h3><p>因<code>dnsmasq</code>和<code>系统DNS服务</code>(<code>mDNSResponder</code>)冲突会造成服务启动失败,因此在启动dnsmasq服务前最好关闭系统服务</p>
+<p>参考启动脚本如下:</p>
+<pre><code>sudo killall -HUP mDNSResponder
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+sudo brew services restart dnsmasq
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+</code></pre><h4 id="PS-对于10-11及以上的OS-需要关闭SIP-系统完整性保护-才能关闭或开启系统DNS服务"><a href="#PS-对于10-11及以上的OS-需要关闭SIP-系统完整性保护-才能关闭或开启系统DNS服务" class="headerlink" title="PS:对于10.11及以上的OS 需要关闭SIP(系统完整性保护)才能关闭或开启系统DNS服务"></a>PS:对于10.11及以上的OS 需要关闭<code>SIP</code>(系统完整性保护)才能关闭或开启系统DNS服务</h4><p>关闭方法</p>
+<p>1.重启，并按住 <code>CMD + R</code> 进入 <code>Recovery Mode</code><br>2.打开 <code>Utilities → Terminal</code><br>3.执行命令 <code>csrutil disable</code><br>4.再次重启系统，此时的系统已经禁用<code>SIP</code></p>
+<h3 id="相关软件安装"><a href="#相关软件安装" class="headerlink" title="相关软件安装"></a>相关软件安装</h3><p>1.安装Homebrew</p>
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre><p>2.安装Dnsmasq</p>
 <pre><code>brew install dnsmasq

@@ -356,7 +356,15 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.安装Homebrew</p>
+        <h3 id="2017-06-13更新"><a href="#2017-06-13更新" class="headerlink" title="2017-06-13更新"></a>2017-06-13更新</h3><p>因<code>dnsmasq</code>和<code>系统DNS服务</code>(<code>mDNSResponder</code>)冲突会造成服务启动失败,因此在启动dnsmasq服务前最好关闭系统服务</p>
+<p>参考启动脚本如下:</p>
+<pre><code>sudo killall -HUP mDNSResponder
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+sudo brew services restart dnsmasq
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+</code></pre><h4 id="PS-对于10-11及以上的OS-需要关闭SIP-系统完整性保护-才能关闭或开启系统DNS服务"><a href="#PS-对于10-11及以上的OS-需要关闭SIP-系统完整性保护-才能关闭或开启系统DNS服务" class="headerlink" title="PS:对于10.11及以上的OS 需要关闭SIP(系统完整性保护)才能关闭或开启系统DNS服务"></a>PS:对于10.11及以上的OS 需要关闭<code>SIP</code>(系统完整性保护)才能关闭或开启系统DNS服务</h4><p>关闭方法</p>
+<p>1.重启，并按住 <code>CMD + R</code> 进入 <code>Recovery Mode</code><br>2.打开 <code>Utilities → Terminal</code><br>3.执行命令 <code>csrutil disable</code><br>4.再次重启系统，此时的系统已经禁用<code>SIP</code></p>
+<h3 id="相关软件安装"><a href="#相关软件安装" class="headerlink" title="相关软件安装"></a>相关软件安装</h3><p>1.安装Homebrew</p>
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre><p>2.安装Dnsmasq</p>
 <pre><code>brew install dnsmasq
