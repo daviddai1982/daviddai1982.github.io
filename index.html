@@ -345,7 +345,7 @@ Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shel
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/">Mac作为共享热点给移动端测试(免越狱或Root)</a>
+      <a class="article-title" href="/2016/12/28/MOBILE-INNER-NETWORK-TEST-IN-MACOS/">Mac搭建手机移动端测试环境(手机免越狱或Root)</a>
     </h1>
   
 
@@ -364,6 +364,7 @@ sudo brew services restart dnsmasq
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 </code></pre><h4 id="PS-对于10-11及以上的OS-需要关闭SIP-系统完整性保护-才能关闭或开启系统DNS服务"><a href="#PS-对于10-11及以上的OS-需要关闭SIP-系统完整性保护-才能关闭或开启系统DNS服务" class="headerlink" title="PS:对于10.11及以上的OS 需要关闭SIP(系统完整性保护)才能关闭或开启系统DNS服务"></a>PS:对于10.11及以上的OS 需要关闭<code>SIP</code>(系统完整性保护)才能关闭或开启系统DNS服务</h4><p>关闭方法</p>
 <p>1.重启，并按住 <code>CMD + R</code> 进入 <code>Recovery Mode</code><br>2.打开 <code>Utilities → Terminal</code><br>3.执行命令 <code>csrutil disable</code><br>4.再次重启系统，此时的系统已经禁用<code>SIP</code></p>
+<h3 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h3><p>作为手机移动端的测试,无论是WAP端还是APP端,在开发中的项目都需要进行大批量的测试.传统的测试方案是把安卓手机Root或者iPhone进行越狱,然后修改手机的hosts文件进行各种测试环境的切换,这种方式实在是太麻烦了.为此经过多次研究实践,本人总结出一套真正可行的方案,赶紧往下看:)</p>
 <h3 id="相关软件安装"><a href="#相关软件安装" class="headerlink" title="相关软件安装"></a>相关软件安装</h3><p>1.安装Homebrew</p>
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre><p>2.安装Dnsmasq</p>
@@ -667,11 +668,11 @@ PS:到最后一步请不要按回车执行
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">路由器</a>
+                <a href="javascript:void(0)" class="color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">hexo</a>
+                <a href="javascript:void(0)" class="color4">路由器</a>
               </li>
              
               <li class="article-tag-list-item">
