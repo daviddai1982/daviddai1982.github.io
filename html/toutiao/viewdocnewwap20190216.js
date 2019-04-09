@@ -118,7 +118,7 @@ var is_zhongsou = false;
 var is_maimai = false;
 $(document).ready(function () {
 
-	document.domain = '10.10.0.167';
+	document.domain = 'daviddai1982.github.io';
 
 	//热点参考 显示更多点击事件
 	$("#showMoreBaikeArchives").click(function(){
